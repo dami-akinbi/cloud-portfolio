@@ -1,21 +1,16 @@
 # Multicloud Infrastructure Portfolio
 
-This repository serves as a centralized collection of my hands-on cloud engineering projects, demonstrating Infrastructure as Code (IaC) principles across major cloud providers. The goal of these deployments is to transition from manual portal configurations to scalable, automated infrastructure using Bicep, Terraform, and ARM templates.
+This repository is a centralized collection of my hands-on cloud engineering projects, demonstrating Infrastructure as Code (IaC) across major cloud providers. The goal is scalable, automated infrastructure using Bicep, Terraform, and ARM templates.
 
-## Current Project: Azure Secure Network Foundation
+## 📂 Repository Structure
 
-The initial phase of this portfolio establishes a secure networking foundation in Microsoft Azure using Bicep. 
+### 🟦 Microsoft Azure
+* **[`/azure/01-ubuntu-vm-bicep`](./azure/01-ubuntu-vm-bicep):** Secure network foundation (VNet, Subnet, NSG) and Ubuntu 24.04 VM provisioning using Azure Bicep.
 
-### Architecture Details
-* **Virtual Network (VNet):** Configured with a `10.0.0.0/16` address space (`vnet-portfolio-iac`).
-* **Subnet:** Dedicated `10.0.1.0/24` block isolated for virtual machine deployments.
-* **Network Security Group (NSG):** Attached to the subnet with explicit inbound rules allowing SSH (Port 22) to support a secure Linux Virtual Machine environment.
+### 🟨 Google Cloud Platform (GCP)
+* **[`/gcp/01-ubuntu-vm-terraform`](./gcp/01-ubuntu-vm-terraform):** *In Progress* - VPC network and Compute Engine deployments using Terraform.
 
-### Deployment Stack
-* **Cloud Provider:** Microsoft Azure
-* **IaC Tool:** Azure Bicep
-* **Execution:** Azure CLI locally authenticated via VS Code
-
-## Future Roadmap
-* **Google Cloud Platform (GCP):** Introduce parallel deployments utilizing Terraform to provision VPCs and Compute Engine instances.
-* **Automation:** Implement CI/CD pipelines via GitHub Actions for automated infrastructure validation.
+## ⚙️ Deployment Stack
+* **Cloud Providers:** Azure, GCP
+* **IaC Tools:** Bicep, Terraform
+* **Execution:** Azure CLI, gcloud CLI, GitHub CLI via PowerShell
