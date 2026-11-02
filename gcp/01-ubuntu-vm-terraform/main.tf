@@ -15,3 +15,38 @@ resource "google_compute_subnetwork" "subnet_linux_vm" {
   region        = "us-central1"
   network       = google_compute_network.vpc_network.id
 }
+
+resource "google_compute_firewall" "allow_ssh" {
+  name    = "allow-ssh-portfolio"
+  network = google_compute_network.vpc_network.name
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags = ["linux-vm"]
+}
+
+resource "google_compute_instance" "ubuntu_vm" {
+  name         = "vm-ubuntu-portfolio"
+  machine_type = "e2-micro"
+  zone         = "us-central1-a"
+
+  tags = ["linux-vm"]
+
+  boot_disk {
+    initialize_params {
+      image = "ubuntu-os-cloud/ubuntu-2404-lts-amd64"
+    }
+  }
+
+  network_interface {
+    network    = google_compute_network.vpc_network.id
+    subnetwork = google_compute_subnetwork.subnet_linux_vm.id
+    access_config {
+      # leaving this empty assigns an ephemeral Publi IP
+    }
+  }
+}
