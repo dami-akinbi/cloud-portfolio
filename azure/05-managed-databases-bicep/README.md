@@ -1,10 +1,10 @@
-# Secure Remote Access: Azure Bastion
-This module removes public IPs from virtual machines, deploying an Azure Bastion host to broker secure, browser-based SSH/RDP connections over the Azure backbone.
+# Managed Databases: Azure PostgreSQL Flexible Server
+This module integrates a Platform-as-a-Service (PaaS) database into the architecture, offloading OS maintenance and patching to Azure.
 
 ## Architecture
-* **Virtual Network**: Provisioned with a dedicated `AzureBastionSubnet` (/24 minimum).
-* **Network Security Group**: Restricted to only allow SSH (Port 22) traffic originating from the Bastion subnet.
-* **Ubuntu VM**: Provisioned purely with a private NIC.
+* **PostgreSQL Flexible Server**: Provisioned using the `Standard_B1ms` burstable tier.
+* **Firewall Rule**: Configured to allow internal traffic from other Azure resources.
 
 **Deployment:**
-`az deployment group create --resource-group rg-portfolio-dev --template-file main.bicep --parameters parameters.dev.json`
+(Requires passing the secure password at runtime)
+`az deployment group create --resource-group rg-portfolio-dev --template-file main.bicep --parameters parameters.dev.json --parameters dbAdminPassword="YourSecurePassword123!"`
