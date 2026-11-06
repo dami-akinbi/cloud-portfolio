@@ -23,3 +23,10 @@ resource "google_sql_user" "db_admin" {
     instance = google_sql_database_instance.postgres.name
     password = var.db_password
 }
+
+module "database" {
+    source = "./modules/database"
+    environment  = var.environment
+    region       = var.region
+    db_password  = var.db_password
+}
