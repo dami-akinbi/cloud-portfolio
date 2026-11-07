@@ -36,7 +36,21 @@ resource "google_compute_firewall" "allow_health_checks" {
   }
   # These are Google's official IP ranges for Load Balancer Health Checks
   source_ranges = ["130.211.0.0/22", "35.191.0.0/16"]
-  target_tags   = ["allow-health-checks"]
+  target_tags   = ["allow-health-check"]
+}
+
+resource "google_compute_router" "router" {
+  name    = "router-portfolio-${var.environment}"
+  network = google_compute_network.vpc_network.name
+  region  = var.region
+}
+
+resource "google_compute_router_nat" "nat" {
+  name                               = "nat-portfolio-${var.environment}"
+  router                             = google_compute_router.router.name
+  region                             = var.region
+  nat_ip_allocate_option             = "AUTO_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
 }
 
 output "vpc_id" { value = google_compute_network.vpc_network.id }
