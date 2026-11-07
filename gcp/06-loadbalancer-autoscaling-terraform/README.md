@@ -1,9 +1,10 @@
-# Secure Remote Access: GCP Identity-Aware Proxy (IAP)
-This module demonstrates secure, public-IP-less infrastructure by routing SSH traffic exclusively through Google's Identity-Aware Proxy forwarding servers.
+# Load Balancing & Autoscaling: GCP Managed Instance Groups
+This module demonstrates high availability by chaining an HTTP Global Load Balancer to a regional Managed Instance Group (MIG) with dynamic autoscaling.
 
 ## Architecture
-* **Firewall (`allow_ssh`)**: Strictly limits ingress to Google's IAP IP block (`35.235.240.0/20`).
-* **Compute Engine**: Provisioned without an `access_config` block, ensuring no public IP is attached.
+* **Global Load Balancer**: Composed of a Forwarding Rule, Target HTTP Proxy, URL Map, and Backend Service.
+* **Instance Template & MIG**: Bootstraps Ubuntu instances with Nginx and attaches them to the backend service.
+* **Autoscaler**: Configured to scale between 1 and 3 instances based on a 70% CPU utilization target.
 
 **Deployment:**
 `terraform apply -var-file="dev.tfvars"`
