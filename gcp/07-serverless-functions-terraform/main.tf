@@ -1,6 +1,7 @@
 # 1. Cloud Storage Bucket for Source Code
 resource "google_storage_bucket" "function_bucket" {
   name                        = "bkt-func-portfolio-${var.environment}-${var.project_id}"
+  project                     = var.project_id
   location                    = var.region
   uniform_bucket_level_access = true
 }
@@ -25,6 +26,7 @@ resource "google_storage_bucket_object" "archive" {
 # 4. Cloud Function
 resource "google_cloudfunctions_function" "function" {
   name                  = "func-portfolio-${var.environment}"
+  project               = var.project_id
   description           = "Serverless function for multicloud portfolio"
   runtime               = "nodejs20"
   available_memory_mb   = 128
@@ -42,4 +44,9 @@ resource "google_cloudfunctions_function_iam_member" "invoker" {
   cloud_function = google_cloudfunctions_function.function.name
   role           = "roles/cloudfunctions.invoker"
   member         = "allUsers"
+}
+
+output "function_url" {
+  value       = google_cloudfunctions_function.function.https_trigger_url
+  description = "The live URL to invoke the serverless function"
 }
