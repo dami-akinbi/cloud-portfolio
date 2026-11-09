@@ -25,7 +25,7 @@ This repository is a centralized collection of my hands-on cloud engineering pro
 ## 📂 Project Roadmap
 
 ### Phase 1: Foundations & Best Practices
-* **01-ubuntu-vm:** Secure network foundation (VNet/VPC, Subnet, NSG/Firewall) and VM provisioning. *(Completed)*
+* **01-ubuntu-vm:** Secure network foundation (VNet/VPC, Subnet, NSG/Firewall) and VM provisioning.
 * **02-parameterized-deployments:** Environment segregation using dynamic parameters and variable files.
 * **03-reusable-modules:** DRY architecture using independent, callable network and compute modules.
 * **04-secure-bastion-iap:** Eliminating public IPs by implementing secure remote access via Azure Bastion and GCP IAP.
