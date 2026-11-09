@@ -8,6 +8,20 @@ This repository is a centralized collection of my hands-on cloud engineering pro
 * **CI/CD:** GitHub Actions
 * **Execution:** Azure CLI, gcloud CLI, PowerShell
 
+## 📊 Project Progression
+- [x] 01 - Virtual Machines (Ubuntu)
+- [x] 02 - Parameterized Deployments
+- [x] 03 - Reusable Modules
+- [x] 04 - Secure Bastion & IAP
+- [x] 05 - Managed Databases
+- [x] 06 - Load Balancers & Autoscaling
+- [x] 07 - Serverless Functions
+- [x] 08 - Container Deployments
+- [ ] 09 - GitHub Actions CI/CD
+- [ ] 10 - Kubernetes Clusters
+- [ ] 11 - Monitoring & Alerting
+- [ ] 12 - Hub-and-Spoke Network
+
 ## 📂 Project Roadmap
 
 ### Phase 1: Foundations & Best Practices
