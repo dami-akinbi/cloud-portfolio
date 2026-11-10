@@ -8,3 +8,5 @@ This module provisions a lightweight, serverless container environment to run a 
 
 **Deployment:**
 `az deployment group create --resource-group rg-portfolio-dev --template-file main.bicep --parameters parameters.dev.json`
+
+*Note: This architecture is automatically deployed via GitHub Actions CI/CD.*
