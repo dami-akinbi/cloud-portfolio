@@ -1,0 +1,27 @@
+name: Azure Infrastructure CD
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'azure/**'
+
+jobs:
+  deploy:
+    runs-on:  ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds:  ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy Container Instance
+        uses: azure/arm-deploy@v1
+        with:
+          resourceGroupName:  rg-portfolio-dev
+          template: ./azure/08-container-deployments-bicep/main.bicep
+          parameters: ./azure/08-container-deployments-bicep/parameters.dev.json
