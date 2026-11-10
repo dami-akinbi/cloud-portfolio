@@ -7,3 +7,5 @@ This module provisions a fully managed serverless container deployment using Goo
 
 **Deployment:**
 `terraform apply -var-file="dev.tfvars"`
+
+*Note: Managed via GitHub Actions CI/CD.*
