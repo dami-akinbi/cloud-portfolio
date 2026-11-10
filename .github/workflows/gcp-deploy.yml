@@ -1,0 +1,29 @@
+name: GCP Infrastructure CD
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'gcp/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Apply
+        working-directory: ./gcp/08-container-deployments-terraform
+        run: |
+          terraform init
+          terraform apply -var-file="dev.tfvars" -auto-approve
