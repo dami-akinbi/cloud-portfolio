@@ -4,12 +4,6 @@
   "parameters": {
     "environment": {
       "value": "dev"
-    },
-    "vmSize": {
-      "value": "Standard_B2s" 
-    },
-    "adminUsername": {
-      "value": "ubuntuwm"
     }
   }
 }
