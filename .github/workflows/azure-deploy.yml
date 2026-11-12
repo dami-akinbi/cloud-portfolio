@@ -19,9 +19,9 @@ jobs:
         with:
           creds:  ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy Container Instance
+      - name: Deploy Kubernetes Cluster
         uses: azure/arm-deploy@v1
         with:
-          resourceGroupName:  rg-portfolio-dev
-          template: ./azure/08-container-deployments-bicep/main.bicep
-          parameters: ./azure/08-container-deployments-bicep/parameters.dev.json
+          resourceGroupName: rg-portfolio-dev
+          template: ./azure/10-kubernetes-cluster-bicep/main.bicep
+          parameters: ./azure/10-kubernetes-cluster-bicep/parameters.dev.json
