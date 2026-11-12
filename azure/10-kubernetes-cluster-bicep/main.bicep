@@ -9,12 +9,12 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2023-08-01' = {
     type: 'SystemAssigned' // AKS automatically manages its own identity/permissions
   }
   properties: {
-    dnsPrefix:  'aks-portfolio-${environment}'
+    dnsPrefix: 'aks-portfolio-${environment}'
     agentPoolProfiles: [
       {
         name: 'agentpool'
-        count:  1
-        vmSize: 'Standard_B2s'  // Cost-effective node size for dev environments
+        count: 1
+        vmSize: 'Standard_B2s' // Cost-effective node size for dev environments
         osType: 'Linux'
         mode: 'System'
       }
@@ -22,4 +22,4 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2023-08-01' = {
   }
 }
 
-output aksClusterName string =  aksCluster.name
+output aksClusterName string = aksCluster.name
