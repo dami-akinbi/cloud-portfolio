@@ -47,7 +47,7 @@ resource logAlert 'Microsoft.Insights/scheduledQueryRules@2023-12-01' = {
     criteria: {
       allOf: [
         {
-          query: 'Heartbeat | summarize Count() by Computer'
+          query: 'Heartbeat | summarize count() by Computer'
           timeAggregation: 'Count'
           operator: 'GreaterThan'
           threshold: 10
