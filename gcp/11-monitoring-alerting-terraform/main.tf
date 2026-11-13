@@ -1,3 +1,4 @@
+// Initializing GCP Observability deployment
 variable "project_id" {}
 variable "environment" {}
 
