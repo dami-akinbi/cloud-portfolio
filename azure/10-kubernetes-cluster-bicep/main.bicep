@@ -14,7 +14,7 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2023-08-01' = {
       {
         name: 'agentpool'
         count: 1
-        vmSize: 'Standard_D2s_v3' // Updated VM size to the D series
+        vmSize: 'Standard_D2as_v4' // Updated to an explicity permitted size
         osType: 'Linux'
         mode: 'System'
       }
