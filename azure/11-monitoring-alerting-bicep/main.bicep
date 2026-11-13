@@ -38,6 +38,7 @@ resource logAlert 'Microsoft.Insights/scheduledQueryRules@2023-12-01' = {
   location: location
   properties: {
     description: 'Alert on missing heartbeats'
+    severity: 2
     enabled: true
     scopes: [ logAnalyticsWorkspace.id ]
     evaluationFrequency: 'PT5M' // Check every 5 minutes
