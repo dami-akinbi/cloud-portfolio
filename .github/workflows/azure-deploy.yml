@@ -19,9 +19,9 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy Kubernetes Cluster
+      - name: Deploy Monitoring and Alerting
         uses: azure/arm-deploy@v1
         with:
           resourceGroupName: rg-portfolio-dev
-          template: ./azure/10-kubernetes-cluster-bicep/main.bicep
-          parameters: ./azure/10-kubernetes-cluster-bicep/parameters.dev.json
+          template: ./azure/11-monitoring-alerting-bicep/main.bicep
+          parameters: ./azure/11-monitoring-alerting-bicep/parameters.dev.json
