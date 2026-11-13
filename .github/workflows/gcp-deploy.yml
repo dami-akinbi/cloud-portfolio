@@ -23,7 +23,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2
 
       - name: Terraform Apply
-        working-directory: ./gcp/10-kubernetes-cluster-terraform
+        working-directory: ./gcp/11-monitoring-alerting-terraform
         run: |
           terraform init
           terraform apply -var-file="dev.tfvars" -auto-approve
