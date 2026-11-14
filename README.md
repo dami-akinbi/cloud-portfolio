@@ -17,9 +17,9 @@ This repository is a centralized collection of my hands-on cloud engineering pro
 - [x] 06 - Load Balancers & Autoscaling
 - [x] 07 - Serverless Functions
 - [x] 08 - Container Deployments
-- [ ] 09 - GitHub Actions CI/CD
-- [ ] 10 - Kubernetes Clusters
-- [ ] 11 - Monitoring & Alerting
+- [x] 09 - GitHub Actions CI/CD
+- [x] 10 - Kubernetes Clusters
+- [x] 11 - Monitoring & Alerting
 - [ ] 12 - Hub-and-Spoke Network
 
 ## 📂 Project Roadmap
